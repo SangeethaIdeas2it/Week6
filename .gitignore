@@ -1,0 +1,72 @@
+# ==========================
+# .NET / C# / Visual Studio
+# ==========================
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.vs/
+.vscode/
+*.dbmdl
+*.dbmdl.*
+*.ncb
+*.sdf
+*.opensdf
+*.VC.db
+TestResults/
+*.PublishProfiles/
+*.pdb
+*.mdb
+*.exe
+*.dll
+
+# For .NET MAUI (platform-specific)
+*.apk
+*.aab
+*.ipa
+*.xcarchive/
+*.app/
+*.dSYM/
+*.zip
+
+# ================
+# Node / Vue.js
+# ================
+node_modules/
+dist/
+.env
+.env.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Vite / Webpack output
+.vite/
+.cache/
+coverage/
+*.tsbuildinfo
+
+# ================
+# OS/Editor Files
+# ================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.tmp
+*.bak
+*.orig
+
+# =================
+# Logs & Misc
+# =================
+*.log
+*.tgz
+.idea/
+*.iml

@@ -1,0 +1,46 @@
+
+Step1:
+I need to design a real-time collaborative document editing system similar to Google Docs. Let's start by exploring the core requirements and architectural challenges.
+Requirements:
+- Multiple users editing same document simultaneously
+- Real-time synchronization of changes
+- Conflict resolution for concurrent edits
+- Document persistence and version history
+- User authentication and permissions
+- Support for 1000+ concurrent users per document
+Help me break down this problem and identify the key architectural decisions I need to make. What are the main challenges and considerations?
+
+Step2:
+Now generate 3 different architectural approaches for this system:
+1. Traditional server-based approach
+2. Event-driven microservices approach
+3. Modern real-time architecture with operational transformation
+For each approach, explain:
+- Core components and their responsibilities
+- How real-time synchronization works
+- Scalability characteristics
+- Implementation complexity
+- Trade-offs and limitations
+
+Step3:
+I want to go with the event-driven microservices approach. Please design the detailed architecture including:
+- Specific services and their responsibilities
+- Communication patterns between services
+- Data flow for real-time collaboration
+- Technology stack recommendations
+- Database design considerations
+- Conflict resolution strategy
+- Scalability and performance optimizations
+Create a comprehensive architectural diagram in text format.
+
+Step 4: Implementation Planning
+Generate implementation roadmap:
+Based on our architecture, create a detailed implementation plan:
+1. Development phases and priorities
+2. Service implementation order and dependencies
+3. API contracts between services
+4. Database schema designs
+5. Technology stack setup instructions
+6. Testing strategy for real-time features
+7. Deployment and infrastructure considerations
+Make this actionable for a development team to follow.
