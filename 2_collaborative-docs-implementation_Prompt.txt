@@ -222,3 +222,58 @@ let me know do i need to run  docker or you will do it
 --postgres-1               | 2025-06-29 09:09:56.943 UTC [2575] FATAL:  database "user" does not exist
 
 yes please do everything to make this running
+caching strategies:
+"Optimize database performance with intelligent caching:
+CDN and "Optimize content delivery with intelligent edge caching
+AI Invalidation Logic: "Implement intelligent cache invalidation
+Goal: Implement caching, optimize database performance, and add monitoring with AI guidance.
+--------------------
+
+Create a robust event-driven communication system for service integration.
+Event System Requirements:
+- Reliable message delivery between services
+AI Driven Development #60day challenge
+- Event ordering and deduplication
+- Dead letter queues for failed processing
+- Event replay for new consumers
+- Schema validation for event payloads
+- Monitoring and alerting for event processing
+Event Types for Our System:
+- UserEvents: user_registered, user_updated, user_deleted
+- DocumentEvents: document_created, document_updated, document_shared, document_deleted
+- CollaborationEvents: user_joined_session, user_left_session, document_changed
+Technical Implementation:
+- Redis Streams for event backbone
+- Event schema validation with Pydantic
+- Automatic retry with exponential backoff
+- Consumer group management
+- Event store for audit and replay
+- Performance monitoring and metrics
+Components to Generate:
+1. EventPublisher: Publishes events to streams
+2. EventConsumer: Base class for consuming events
+3. EventRouter: Routes events to appropriate handlers
+4. EventStore: Persistent storage for events
+5. EventMonitor: Monitoring and alerting
+Include comprehensive error handling, monitoring, and testing utilities.
+Create comprehensive integration testing framework for service communication.
+Testing Requirements:
+- End-to-end workflow testing
+- Service dependency testing
+- Error handling and recovery testing
+- Performance and load testing
+- Event processing validation
+Test Scenarios:
+1. User Registration to Document Creation Flow
+2. Document Sharing with Event Notification
+3. Service Failure and Recovery Scenarios
+4. API Gateway Routing and Authentication
+5. Event Processing and Ordering
+Testing Infrastructure:
+- Test fixtures and cleanup
+- Service mocking and stubbing
+- Performance benchmarking
+- Integration with pytest
+Generate complete testing framework with utilities for setup, execution, and validation.
+
+---------------------------
