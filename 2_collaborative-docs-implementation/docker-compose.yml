@@ -1,0 +1,98 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: collabdocs
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  user_service:
+    build: ./services/user_service
+    environment:
+      DATABASE_URL: postgresql+asyncpg://user:password@postgres:5432/collabdocs
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: supersecretkey
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  document_service:
+    build: ./services/document_service
+    environment:
+      DATABASE_URL: postgresql+asyncpg://user:password@postgres:5432/collabdocs
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: supersecretkey
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8001:8001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  collaboration_service:
+    build: ./services/collaboration_service
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DOCUMENT_SERVICE_URL: http://document_service:8001
+    depends_on:
+      document_service:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api_gateway:
+    image: nginx:alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - user_service
+      - document_service
+      - collaboration_service
+
+volumes:
+  pgdata: 

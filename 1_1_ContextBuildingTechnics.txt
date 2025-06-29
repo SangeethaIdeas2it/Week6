@@ -1,0 +1,5 @@
+
+To Retain Context.
+1. Add system-context.md ie Technique 1: Architecture Context Files
+2. Technique 2: Progressive Context Building
+3. Technique 3: Code Consistency Patterns

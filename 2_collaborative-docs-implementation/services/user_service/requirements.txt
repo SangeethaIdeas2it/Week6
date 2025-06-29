@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy[asyncio]
+asyncpg
+aioredis
+passlib[bcrypt]
+python-jose
+pydantic
+httpx
+pytest
+pytest-asyncio 

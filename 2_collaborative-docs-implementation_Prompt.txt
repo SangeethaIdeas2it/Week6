@@ -1,0 +1,157 @@
+
+Step1:
+Based on our collaborative document system architecture , I need to establish the development context for implementing the system.
+Create a comprehensive system-context.md file that includes:
+1. Architecture Overview
+- Microservices: UserService, DocumentService, CollaborationService
+- Communication: REST APIs + WebSocket for real-time
+- Data: PostgreSQL + Redis for caching/messaging
+- Tech Stack: FastAPI, SQLAlchemy, Redis, WebSockets
+2. Development Standards
+- Code structure and patterns to follow
+- Error handling conventions
+- API response formats
+- Database model patterns
+- Testing requirements
+3. Integration Specifications
+- Service communication protocols
+- Authentication/authorization flow
+- Data validation requirements
+- Real-time message formats
+4. Quality Requirements
+- Performance expectations
+- Security requirements
+- Logging and monitoring standards
+- Documentation requirements
+
+
+Step2:
+Generate a complete User Service for the collaborative document system using the system-context.md as reference.
+Requirements:
+- FastAPI application with async patterns
+- User registration, login, profile management
+- JWT token authentication with refresh tokens
+- Password hashing with bcrypt
+- Input validation with Pydantic
+- PostgreSQL integration with SQLAlchemy
+- Redis for session management
+- Comprehensive error handling
+- Health check endpoints
+- OpenAPI documentation
+- Security best practices (rate limiting, input sanitization)
+Service Specifications:
+- POST /auth/register - User registration
+- POST /auth/login - User authentication
+- GET /auth/me - Get current user profile
+- PUT /auth/profile - Update user profile
+- POST /auth/refresh - Refresh JWT token
+- POST /auth/logout - User logout
+- GET /health - Service health check
+Include:
+- Complete FastAPI app setup with middleware
+- Database models with relationships
+- Pydantic schemas for validation
+- Authentication dependencies
+- Error handling and logging
+- Configuration management
+- Sample data for testing
+Generate production-ready code following the established patterns.
+
+Step3:
+Now add comprehensive security features and testing
+1. Security Enhancements:
+- Rate limiting for authentication endpoints
+- Input validation with detailed error messages
+- Security headers and CORS configuration
+- Audit logging for security events
+- Password complexity requirements
+- Session management with Redis
+- Account lockout after failed attempts
+2. Testing Suite:
+- Unit tests for all authentication functions
+- Integration tests for API endpoints
+- Security tests for common vulnerabilities
+- Performance tests for concurrent users
+3. Documentation:
+- API documentation with examples
+- Security implementation details
+- Configuration guide
+- Deployment instructions
+*Generate all files needed for a complete, production-ready User Service.
+
+---
+Generate a complete Document Service following the system context and patterns established in the User Service.
+Requirements:
+- Document CRUD operations with version control
+- Integration with User Service for authentication
+- Document sharing and permissions management
+- Full-text search capabilities
+- File upload/download handling
+- Document collaboration metadata
+- PostgreSQL with optimized queries
+- Redis caching for frequently accessed documents
+Service Specifications:
+- POST /documents - Create new document
+- GET /documents - List user's documents with pagination
+- GET /documents/{id} - Get specific document with content
+- PUT /documents/{id} - Update document content with versioning
+- DELETE /documents/{id} - Delete document
+- POST /documents/{id}/share - Share document with users
+- GET /documents/{id}/collaborators - Get document collaborators
+- GET /documents/search - Full-text search across documents
+Advanced Features:
+- Document versioning with diff tracking
+- Automated backup and recovery
+- Document templates and cloning
+- Export to multiple formats (PDF, DOCX, HTML)
+- Collaborative permissions (read/write/admin)
+- Document analytics and usage tracking
+Include:
+- Complete service implementation with all endpoints
+- Database models for documents, versions, permissions
+- Caching strategies for performance
+- Integration with User Service for authentication
+- Comprehensive error handling and validation
+- Unit and integration tests
+- API documentation
+Generate production-ready code consistent with the User Service patterns.
+
+-----------------
+Generate the most complex service - the real-time Collaboration Service for handling simultaneous document editing.
+Core Requirements:
+- WebSocket connection management for real-time communication
+- Operational Transformation algorithm for conflict resolution
+- Real-time cursor position tracking
+- Change broadcasting to all connected users
+- Connection state management and recovery
+- Integration with Document Service for persistence
+Technical Specifications:
+- WebSocket endpoints for real-time communication
+- Operational transformation for text changes
+- Redis Streams for event processing
+- Message queuing for reliable delivery
+- Connection pooling and load balancing
+- Automatic reconnection handling
+WebSocket Events:
+- user_joined - User joins document editing session
+- user_left - User leaves document editing session
+- document_change - Text modification with operational transformation
+- cursor_position - Real-time cursor tracking
+- document_saved - Document persistence confirmation
+Advanced Features:
+- Conflict resolution with merge strategies
+- Undo/redo in collaborative context
+- Real-time user presence indicators
+- Change attribution and author tracking
+- Network failure recovery mechanisms
+- Performance optimization for 1000+ concurrent users
+Implementation Requirements:
+- FastAPI with WebSocket support
+- Operational transformation algorithm implementation
+- Redis integration for event processing
+- Connection management with automatic cleanup
+- Comprehensive error handling and recovery
+- Performance monitoring and metrics
+- Unit tests for collaboration logic
+- Integration tests with other services
+Generate the complete service with WebSocket handlers, operational transformation logic, and integration with other services.
