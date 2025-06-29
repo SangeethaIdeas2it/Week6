@@ -155,3 +155,70 @@ Implementation Requirements:
 - Unit tests for collaboration logic
 - Integration tests with other services
 Generate the complete service with WebSocket handlers, operational transformation logic, and integration with other services.
+----------------------
+Step 5: Integration and Testing Setup
+10. Generate integration code:
+Create the integration layer and testing setup for all three services:
+1. Integration Components:
+- Docker Compose configuration for all services
+AI Driven Development #60day challenge
+- Shared models and utilities
+- API Gateway configuration for service routing
+- Service discovery and health monitoring
+- Database migration scripts
+- Redis configuration for different environments
+2. Testing Framework:
+- Integration tests for service communication
+- End-to-end tests for complete workflows
+- Load testing scripts for WebSocket performance
+- Security testing for authentication and authorization
+3. Development Environment:
+- Setup scripts for local development
+- Environment configuration management
+- Debugging and monitoring tools
+- Comprehensive README with instructions
+4. Documentation:
+- API documentation for all services
+- Architecture documentation with diagrams
+- Deployment and operations guide
+- Development workflow documentation
+Generate complete setup for a production-ready microservices system.
+
+---------------
+Design and implement an intelligent API Gateway for our collaborative document system.
+System Requirements:
+- Route requests to User, Document services
+- Centralized authentication and authorization
+- Rate limiting per user and endpoint
+- Request/response transformation
+- Load balancing with health checks
+- Comprehensive logging and monitoring
+- Error handling and circuit breakers
+- CORS configuration for web clients
+Advanced Features:
+- Intelligent routing based on request analysis
+- Dynamic rate limiting based on user behavior
+- Request caching for frequently accessed data
+- Response compression and optimization
+- API versioning support
+- Real-time metrics and analytics
+Technical Implementation:
+- FastAPI with middleware for cross-cutting concerns
+- Redis for rate limiting and caching
+- Service discovery and health monitoring
+- JWT token validation and refresh
+- Request correlation IDs for tracing
+- Structured logging for observability
+Gateway Routes:
+- /api/v1/auth/* → User Service
+- /api/v1/documents/* → Document Service
+- /api/v1/health → All services health check
+- /api/v1/metrics → Gateway and service metrics
+Include comprehensive error handling, security measures, and performance optimizations.
+
+-------------------
+can you make sure all the service are having proper port number and gateway. 
+let me know do i need to run  docker or you will do it
+--postgres-1               | 2025-06-29 09:09:56.943 UTC [2575] FATAL:  database "user" does not exist
+
+yes please do everything to make this running

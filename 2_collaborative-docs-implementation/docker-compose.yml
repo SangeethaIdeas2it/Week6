@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:14
@@ -39,9 +37,9 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "8000:8000"
+      - "8003:8003"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -84,15 +82,20 @@ services:
       retries: 5
 
   api_gateway:
-    image: nginx:alpine
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    build: ./integration
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      USER_SERVICE_URL: http://user_service:8003
+      DOCUMENT_SERVICE_URL: http://document_service:8001
+      COLLABORATION_SERVICE_URL: http://collaboration_service:8002
+      SECRET_KEY: supersecretkey
     ports:
-      - "80:80"
+      - "80:8000"
     depends_on:
       - user_service
       - document_service
       - collaboration_service
+      - redis
 
 volumes:
   pgdata: 

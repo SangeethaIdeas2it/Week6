@@ -8,4 +8,6 @@ python-jose
 pydantic
 httpx
 pytest
-pytest-asyncio 
+pytest-asyncio
+email-validator
+python-multipart 

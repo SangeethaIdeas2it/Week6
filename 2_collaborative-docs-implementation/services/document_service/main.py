@@ -85,7 +85,7 @@ class DocumentVersionOut(BaseModel):
 
 class ShareRequest(BaseModel):
     user_id: int
-    permission: constr(regex="^(read|write|admin)$")
+    permission: constr(pattern="^(read|write|admin)$")
 
 class CollaboratorOut(BaseModel):
     user_id: int
@@ -277,6 +277,10 @@ async def download_file(id: int, db: AsyncSession = Depends(get_db), user_id: in
         raise HTTPException(status_code=404, detail="Document not found")
     return StreamingResponse(io.BytesIO(doc.content.encode()), media_type="text/plain", headers={"Content-Disposition": f"attachment; filename=doc_{id}.txt"})
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
 # --- Startup/Shutdown Events ---
 @app.on_event("startup")
 async def startup():
@@ -294,3 +298,4 @@ async def shutdown():
 # --- Run the app ---
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)
+
