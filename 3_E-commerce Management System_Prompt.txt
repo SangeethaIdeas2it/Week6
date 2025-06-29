@@ -153,5 +153,19 @@ Include:
 - Client connection example
 - Logging and metrics
 
+--------------
+Implement integration tests using xUnit + TestContainers.
+
+Scenarios:
+1. Product creation → Order placement → Stock reduction
+2. Order failure → stock rollback
+3. Real-time inventory message via SignalR
+4. Redis event propagation
+
+Include:
+- Test fixture setup
+- Docker Compose test orchestration
+- Mock services for Stripe/payment
+
 
 
