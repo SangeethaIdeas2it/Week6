@@ -1,0 +1,157 @@
+Architecture Context for AI-Powered E-Commerce System -.NET
+
+Overview
+- Domain: Online product ordering with inventory
+- Architecture: Clean Architecture (.NET 8)
+- Backend: ASP.NET Core Web API
+- Real-time: SignalR
+- Caching: Redis
+- Database: SQL Server (EF Core)
+- Communication: REST + Event-Driven via Redis Streams
+- Deployment: Docker + Compose
+
+
+Step 1:
+I need to design an AI-powered e-commerce management system (like Shopify backend). Let's start by exploring core requirements and architectural challenges.
+
+Requirements:
+- Product catalog (categories, pricing, inventory)
+- Customer profiles and authentication
+- Order management and payments
+- Real-time stock updates
+- Analytics dashboard
+
+Constraints:
+- Clean Architecture (.NET 8)
+- Entity Framework Core with SQL Server
+- SignalR for live updates
+- Redis for caching and event handling
+
+Help me break down this system and identify the key architectural decisions I need to make. What are the major components, services, and considerations?
+
+---
+
+Step 2:
+Now generate 3 architectural approaches for this system:
+1. Monolithic Web API with modules
+2. Layered Clean Architecture
+3. Microservices with domain isolation
+
+For each, explain:
+- Core services and responsibilities
+- Communication patterns (REST, events)
+- Scalability
+- Trade-offs
+
+---
+
+Step 3:
+I choose the **Layered Clean Architecture** approach.
+
+Please provide:
+- Domain structure: entities, value objects, events
+- Application layer: CQRS-based handlers
+- Infra layer: EF Core, Redis, logging
+- API layer: REST + Swagger + SignalR
+
+Also include:
+- Data flow for a product being created and ordered
+- Real-time inventory sync strategy
+- Resilience and retry strategies
+
+---
+
+Step 4: Implementation Planning
+
+Generate implementation roadmap:
+1. Development phases
+2. Project folder structure
+3. CQRS file generation plan
+4. Redis caching and events plan
+5. API contract guide
+6. Testing and deployment plan
+------------------------------------------------
+
+
+
+Step 1:
+I’m ready to implement the system. Generate a `system-context.md` that includes:
+
+1. Microservices:
+- ProductService
+- CustomerService
+- OrderService
+- InventoryService
+- NotificationService
+
+2. Communication:
+- REST for sync
+- Redis Streams for async events
+- SignalR for live stock updates
+
+3. Stack:
+- ASP.NET Core Web API
+- EF Core + SQL Server
+- Redis + Redis Streams
+- SignalR
+- xUnit + TestContainers for integration tests
+
+4. Standards:
+- FluentValidation
+- AutoMapper
+- Serilog
+- JWT Authentication
+
+------------------
+Create a complete ProductService using Clean Architecture and system-context.md.
+
+Requirements:
+- Product entity: Id, Name, Price, CategoryId, Stock
+- Category entity with hierarchy
+- CRUD endpoints
+- Redis caching for read
+- EF Core repository
+- Commands: CreateProductCommand, UpdateProductCommand
+- Queries: GetProductById, GetAllProducts
+- Domain Events: ProductCreated, ProductUpdated
+
+Include:
+- xUnit tests for commands/queries
+- Swagger-enabled controller
+- Logging and error handling
+
+---------
+Implement a complete OrderService.
+
+Requirements:
+- PlaceOrderCommand (customerId, items[], payment info)
+- Order aggregate with LineItems
+- OrderStatus enum: Pending, Paid, Shipped
+- Domain events: OrderPlaced, OrderPaid
+- Integration with ProductService (for stock)
+- Redis event: publish OrderPlaced
+- EF Core + SignalR for real-time order status
+
+Include:
+- REST endpoints with JWT
+- AutoMapper profiles
+- FluentValidation
+- Integration tests for ordering flow
+
+--------
+
+Implement real-time stock updates using SignalR.
+
+Requirements:
+- InventoryHub with methods: NotifyStockChange(productId, newStock)
+- SignalR setup in WebAPI
+- InventoryService invokes SignalR when stock is updated
+- Handle connection management and group routing
+
+Include:
+- Hub configuration
+- Client connection example
+- Logging and metrics
+
+
+

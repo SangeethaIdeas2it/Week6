@@ -277,3 +277,156 @@ Testing Infrastructure:
 Generate complete testing framework with utilities for setup, execution, and validation.
 
 ---------------------------
+
+Module:
+Design and implement a comprehensive caching system for our collaborative document platform.
+Performance Requirements:
+- Sub-50ms response times for cached data
+AI Driven Development #60day challenge
+- 90%+ cache hit rates for frequently accessed content
+- Intelligent cache warming and invalidation
+- Multi-layer caching strategy (Redis, in-memory, CDN)
+- Performance monitoring and optimization
+Caching Layers:
+1. Application Cache (Redis):
+- User sessions and authentication data
+- Document metadata and permissions
+- Collaboration session state
+- Search results and aggregations
+2. Database Query Cache:
+- Expensive query results
+- Computed aggregations
+- Frequently accessed document content
+3. CDN/Edge Cache:
+- Static assets and public content
+- Document snapshots for collaboration
+- API responses for public endpoints
+AI Driven Development #60day challenge
+Advanced Features:
+- Predictive cache warming based on user patterns
+- Intelligent cache eviction with LRU and frequency analysis
+- Cache dependency tracking for smart invalidation
+- Performance analytics and optimization recommendations
+- Distributed cache coherence across service instances
+Technical Implementation:
+- Redis Cluster for distributed caching
+- Async cache operations with connection pooling
+- Cache key namespacing and versioning
+- Compression for large cached objects
+- Monitoring and alerting for cache performance
+Generate production-ready caching implementation with comprehensive error handling and monitoring.
+
+-----------
+Create comprehensive database performance optimization tools for our collaborative document system.
+Database Performance Requirements:
+- Sub-100ms query response times for 95% of requests
+- Efficient handling of concurrent document edits
+- Optimized search across large document collections
+- Minimal database locking and contention
+- Horizontal scaling capability
+Optimization Areas:
+1. Query Optimization:
+- Automatic query analysis and optimization suggestions
+- Index recommendation based on query patterns
+- Query plan analysis and improvement
+- Parameterized query optimization
+2. Connection Management:
+- Optimal connection pool sizing
+- Connection lifecycle management
+- Read/write splitting for scalability
+- Connection health monitoring
+3. Database Schema Optimization:
+- Table partitioning strategies
+- Index optimization for collaborative editing
+- Denormalization for read performance
+- Archive strategies for old data
+4. Concurrency Optimization:
+- Optimistic locking for document edits
+- Deadlock detection and resolution
+- Transaction isolation optimization
+- Bulk operation optimization
+Technical Implementation:
+- PostgreSQL-specific optimizations
+- Query performance monitoring
+- Automatic index management
+- Connection pool optimization
+AI Driven Development #60day challenge
+- Database health monitoring
+Generate production-ready database optimization tools with monitoring and alerting.
+
+--------
+Implement AI-powered performance monitoring system for real-time optimization.
+Monitoring Requirements:
+- Real-time performance metrics collection
+- Anomaly detection for performance degradation
+- Predictive alerting for potential issues
+- Performance trend analysis and optimization
+- Business impact assessment of performance issues
+Monitoring Categories:
+1. Application Performance:
+- API response times and throughput
+- WebSocket connection performance
+- Memory and CPU usage patterns
+- Error rates and failure patterns
+2. Database Performance:
+- Query execution times and patterns
+- Connection pool utilization
+- Index usage and optimization opportunities
+- Database lock contention
+3. Infrastructure Performance:
+- Server resource utilization
+- Network latency and throughput
+- Storage I/O performance
+- Load balancer efficiency
+4. Business Metrics:
+- User experience indicators
+- Feature usage patterns
+- Performance impact on user behavior
+- Revenue impact of performance issues
+AI-Enhanced Features:
+AI Driven Development #60day challenge
+- Predictive performance analysis
+- Automatic performance optimization suggestions
+- Anomaly detection with machine learning
+- Performance correlation analysis
+- Optimization recommendation engine
+Generate comprehensive monitoring system with dashboards, alerting, and optimization recommendations.
+---------------
+Create comprehensive load testing framework for validating system performance and scalability.
+Load Testing Requirements:
+- Simulate realistic user behavior patterns
+- Test system under various load conditions
+- Validate performance under failure scenarios
+- Measure scalability characteristics
+- Generate actionable performance reports
+Testing Scenarios:
+1. Baseline Performance Testing:
+- Single user performance benchmarks
+- API endpoint response time validation
+- Database query performance testing
+- WebSocket connection performance
+2. Scalability Testing:
+- Gradual load increase from 1 to 1000+ users
+- Sudden load spikes simulation
+- Sustained high load testing
+- Resource utilization under load
+3. Stress Testing:
+- System behavior at breaking points
+- Recovery after overload conditions
+- Cascading failure prevention
+- Resource exhaustion scenarios
+4. Real-world Simulation:
+- Collaborative editing with multiple users
+- Document sharing and permission changes
+AI Driven Development #60day challenge
+- Mixed read/write operations
+- Geographic distribution simulation
+Technical Implementation:
+- Locust or Artillery for load generation
+- WebSocket load testing for real-time features
+- Database stress testing tools
+- Performance metrics collection during tests
+- Automated performance regression detection
+Generate comprehensive load testing suite with realistic scenarios and detailed reporting.
+-----
+can you list all urls and check its working and fix any issues exist.

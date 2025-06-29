@@ -90,7 +90,7 @@ services:
       COLLABORATION_SERVICE_URL: http://collaboration_service:8002
       SECRET_KEY: supersecretkey
     ports:
-      - "80:8000"
+      - "8000:8000"
     depends_on:
       - user_service
       - document_service

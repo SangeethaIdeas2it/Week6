@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+httpx
+aioredis
+PyJWT
+python-multipart
+gunicorn 
