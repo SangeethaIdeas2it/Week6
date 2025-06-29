@@ -167,5 +167,20 @@ Include:
 - Docker Compose test orchestration
 - Mock services for Stripe/payment
 
+----------
+Implement performance monitoring.
+
+Features:
+- Middleware to log response times
+- Collect request metrics (prometheus compatible)
+- Detect slow DB queries and high memory
+- Track SignalR metrics (connections, messages/sec)
+
+Use:
+- Serilog
+- Prometheus exporters
+- AppInsights/Elastic for tracing
+
+
 
 
