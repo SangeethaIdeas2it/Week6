@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1434:1433"
+
+  productservice:
+    build:
+      context: .
+      dockerfile: ProductService.Api/Dockerfile
+    ports:
+      - "8005:8001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ProductDb;User=sa;Password=Your_password123;
+    depends_on:
+      - sqlserver 
+
+  orderservice-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1435:1433"
+
+  orderservice:
+    build:
+      context: .
+      dockerfile: OrderService.Api/Dockerfile
+    ports:
+      - "8006:8001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=orderservice-sqlserver;Database=OrderDb;User=sa;Password=Your_password123;
+    depends_on:
+      - orderservice-sqlserver 
